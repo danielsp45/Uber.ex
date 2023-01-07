@@ -1,4 +1,6 @@
 defmodule Uber.Rides do
+  use GenServer
+
   defstruct id: nil,
     date: nil,
     driver: nil,
@@ -10,4 +12,15 @@ defmodule Uber.Rides do
     tip: nil,
     comment: nil
 
+  # Client
+
+  def start_link do
+    GenServer.start_link(__MODULE__, %{})
+  end
+
+  # Server
+
+  def init(state) do
+    {:ok, state}
+  end
 end
