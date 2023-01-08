@@ -7,6 +7,10 @@ defmodule Uber.Catalog do
     {:ok, pid_users} = Uber.Users.start_link
     {:ok, pid_rides} = Uber.Rides.start_link
 
+    IO.puts "Drivers started with pid #{inspect pid_drivers}"
+    IO.puts "Users started with pid #{inspect pid_users}"
+    IO.puts "Rides started with pid #{inspect pid_rides}"
+
     catalog = %{
       drivers: pid_drivers,
       users: pid_users,
